@@ -31,10 +31,10 @@ def crop_img(img):
   img = Image.open("image.jpg")
   img2 = img.crop((X, Y, X+WIDTH, Y+HEIGHT))
   img2.save("image_cropped.jpg")
-  print img.size
+  print img2.size
 
 CWP = os.getcwd()   # Get current working directory
-CWP = '/'.join(CWP.split('/')[:-1])
+# CWP = '/'.join(CWP.split('/')[:-1])
 
 def run_bash_cmd(cmd):
   process = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE)
