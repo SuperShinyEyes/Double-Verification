@@ -31,6 +31,7 @@ def crop_img(img):
   img = Image.open("image.jpg")
   img2 = img.crop((X, Y, X+WIDTH, Y+HEIGHT))
   img2.save("image_cropped.jpg")
+  print img.size
 
 CWP = os.getcwd()   # Get current working directory
 CWP = '/'.join(CWP.split('/')[:-1])
