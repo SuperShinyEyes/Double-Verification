@@ -19,6 +19,7 @@ class PyFaces:
     self.facet.checkCache(self.imgsdir,extn,self.imgnamelist,self.egfnum,self.threshold)
     mindist,matchfile=self.facet.findmatchingimage(self.testimg,self.egfnum,self.threshold)
     self.matchfile = matchfile
+    print matchfile, self.matchfile
     if mindist < 1e-10:
       mindist=0
     if not matchfile:
