@@ -32,7 +32,7 @@ class PyFaces:
     numimgs=len(self.imgnamelist)
     if(selected_eigenfaces_count >= numimgs  or selected_eigenfaces_count == 0):
       selected_eigenfaces_count=numimgs/2
-      return selected_eigenfaces_count
+    return selected_eigenfaces_count
 
   # def return_matchfile(self, matchfile):
   #   return matchfile
