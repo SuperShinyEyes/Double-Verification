@@ -19,5 +19,3 @@ if __name__ == "__main__":
     except Exception,detail:
         print detail.args
         print "usage:python pyfacesdemo imgname dirname numofeigenfaces threshold "
-    else:
-      return pyf.
