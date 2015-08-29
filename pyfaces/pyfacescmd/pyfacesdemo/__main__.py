@@ -80,7 +80,7 @@ print("Cropping...")
 # imgname = CWP + "/image.jpg"
 # crop_img(imgname)
 # imgname = CWP + "/image_cropped.jpg"
-imgname = "/home/Double-Verification/pyfaces/images/probes/subject06_wc.jpg"
+imgname = "/home/Double-Verification/pyfaces/images/probes/subject06_wc2.jpg"
 
 print("Run face recognition!")
 # FACE_REC_COMMAND = "python pyfacescmd/pyfacesdemo %s 12 3" % image_path
