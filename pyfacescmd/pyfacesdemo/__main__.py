@@ -31,7 +31,8 @@ def run_bash_cmd(cmd):
   return output
 
 print("Taking a photo!")
-CAPTURE_COMMAND = "fswebcam -r 1280x720 image.jpg"
+# CAPTURE_COMMAND = "fswebcam -r 1280x720 image.jpg"
+CAPTURE_COMMAND = "fswebcam -r 640x426 image.jpg"
 print run_bash_cmd(CAPTURE_COMMAND)
 
 print("Run face recognition!")
