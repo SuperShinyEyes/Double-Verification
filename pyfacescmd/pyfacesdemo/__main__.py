@@ -21,6 +21,16 @@ from pyfaces import pyfaces
 #         print "usage:python pyfacesdemo imgname dirname numofeigenfaces threshold "
 
 import sh, subprocess, os
+from PIL import Image
+
+def crop_img(img):
+  X = 200
+  Y = 60
+  WIDTH = 240
+  HEIGHT = 320
+  img = Image.open("image.jpg")
+  img2 = img.crop((X, Y, X+WIDTH, Y+HEIGHT))
+  img2.save("image_cropped.jpg")
 
 CWP = os.getcwd()   # Get current working directory
 CWP = '/'.join(CWP.split('/')[:-1])
@@ -36,12 +46,13 @@ CAPTURE_COMMAND = "fswebcam -r 640x426 image.jpg"
 print run_bash_cmd(CAPTURE_COMMAND)
 
 print("Cropping...")
-CROP_COMMAND = "convert 'image.jpg' -crop 240x320+180+60 image.jpg"
-run_bash_cmd(CROP_COMMAND)
+imgname = CWP + "/image.jpg"
+crop_img(imgname)
+imgname = CWP + "/image_cropped.jpg"
 
 print("Run face recognition!")
 # FACE_REC_COMMAND = "python pyfacescmd/pyfacesdemo %s 12 3" % image_path
-imgname = CWP + "/image.jpg"
+
 dirname = CWP + "/images/gallery/"
 egfaces = 12
 thrshld = 3
