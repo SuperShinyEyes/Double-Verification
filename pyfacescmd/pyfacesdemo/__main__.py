@@ -45,13 +45,13 @@ def run_bash_cmd(cmd):
 
 print("Taking a photo!")
 # CAPTURE_COMMAND = "fswebcam -r 1280x720 image.jpg"
-CAPTURE_COMMAND = "fswebcam -r 640x426 %s /images/probes/image.jpg" % CWP_parent
+CAPTURE_COMMAND = "fswebcam -r 640x426 image.jpg"
 print run_bash_cmd(CAPTURE_COMMAND)
 
 print("Cropping...")
-imgname = CWP + "/images/probes/image.jpg"
+imgname = CWP + "/image.jpg"
 crop_img(imgname)
-# imgname = CWP + "/image_cropped.jpg"
+imgname = CWP + "/image_cropped.jpg"
 
 print("Run face recognition!")
 # FACE_REC_COMMAND = "python pyfacescmd/pyfacesdemo %s 12 3" % image_path
