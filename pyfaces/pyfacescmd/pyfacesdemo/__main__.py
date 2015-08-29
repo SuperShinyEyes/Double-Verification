@@ -38,11 +38,11 @@ def read_mac_addr_db(filename):
     # Execute the SQL command
     cursor.execute(sql)
     # Fetch all the rows in a list of lists.
-    mac_addr = cursor.fetchall()
+    mac_addr = cursor.fetchall()[0][0]
     sql_img_path = "SELECT imagePath FROM registerTable WHERE imagePath = '%s'" % (image_path)
     cursor.execute(sql_img_path)
     print cursor.fetchall()[0]
-    print ">>>>>mac_addr:", mac_addr[0]
+    print ">>>>>mac_addr:", mac_addr
     print type(mac_addr)
   except:
     print "Error: unable to fecth data"
