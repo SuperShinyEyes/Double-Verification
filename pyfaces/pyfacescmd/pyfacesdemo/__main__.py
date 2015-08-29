@@ -71,7 +71,7 @@ end = time.time()
 print 'took :',(end-start),'secs'
 
 mac_addr = read_mac_addr_db(pyf.matchfile)
-if mac_addr != False
+if mac_addr != False:
   if person_has_phone(mac_addr):
     print "Welcome!!!"
   else:
