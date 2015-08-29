@@ -12,7 +12,7 @@ CAPTURE_COMMAND = "fswebcam -r 1280x720 image.jpg"
 print run_bash_cmd(CAPTURE_COMMAND)
 
 print("Run face recognition!")
-FACE_REC_COMMAND = "python pyfacescmd/pyfacesdemo %s 12 3" % image_path
+# FACE_REC_COMMAND = "python pyfacescmd/pyfacesdemo %s 12 3" % image_path
 imgname = CWP + "/image.jpg"
 dirname = CWP + "/images/gallery/"
 egfaces = 12
