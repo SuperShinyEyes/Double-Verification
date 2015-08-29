@@ -23,6 +23,7 @@ from pyfaces import pyfaces
 import sh, subprocess, os
 
 CWP = os.getcwd()   # Get current working directory
+CWP = '/'.join(CWP.split('/')[:-1])
 
 def run_bash_cmd(cmd):
   process = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE)
