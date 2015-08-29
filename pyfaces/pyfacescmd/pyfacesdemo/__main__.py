@@ -38,6 +38,7 @@ def read_mac_addr_db(image_path):
     return False
 
 def person_has_phone(mac_addr):
+  print "Mac address:", mac_addr
   nearby_devices = bluetooth.discover_devices()
   return mac_addr in nearby_devices
 
