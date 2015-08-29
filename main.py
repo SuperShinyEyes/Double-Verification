@@ -1,5 +1,5 @@
 import sh, subprocess, os
-import pyfacescmd
+from .pyfacescmd.pyfacesdemo import pyfaces
 
 CWP = os.getcwd()   # Get current working directory
 
