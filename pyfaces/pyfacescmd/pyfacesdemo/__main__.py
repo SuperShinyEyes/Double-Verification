@@ -37,19 +37,21 @@ def read_mac_addr_db(image_path):
     # Execute the SQL command
     cursor.execute(sql)
     # Fetch all the rows in a list of lists.
-    results = cursor.fetchall()
-    print ">>>>>results:", results
-    print type(results)
+    mac_addr = cursor.fetchall()
+    print ">>>>>mac_addr:", mac_addr
+    print type(mac_addr)
   except:
     print "Error: unable to fecth data"
 
-  # disconnect from server
-  db.close()
-
-  if mac_addr != None:
-    return mac_addr
   else:
-    return False
+    if mac_addr != None:
+      return mac_addr
+    else:
+      return False
+
+  finally:
+    # disconnect from server
+    db.close()
 
 def person_has_phone(mac_addr):
   print "Mac address:", mac_addr
