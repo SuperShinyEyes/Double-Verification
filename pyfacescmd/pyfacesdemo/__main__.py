@@ -35,6 +35,10 @@ print("Taking a photo!")
 CAPTURE_COMMAND = "fswebcam -r 640x426 image.jpg"
 print run_bash_cmd(CAPTURE_COMMAND)
 
+print("Cropping...")
+CROP_COMMAND = "convert 'image.jpg' -crop 240x320+180+60 image.jpg"
+run_bash_cmd(CROP_COMMAND)
+
 print("Run face recognition!")
 # FACE_REC_COMMAND = "python pyfacescmd/pyfacesdemo %s 12 3" % image_path
 imgname = CWP + "/image.jpg"
