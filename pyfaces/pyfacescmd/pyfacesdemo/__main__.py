@@ -31,7 +31,7 @@ def read_mac_addr_db(image_path):
   cursor = db.cursor()
 
   # Prepare SQL query to INSERT a record into the database.
-  sql = "SELECT GoogleAccount FROM registerTable \ WHERE imagePath = '%s'" % (image_path)
+  sql = "SELECT GoogleAccount FROM registerTable WHERE imagePath = '%s'" % (image_path)
 
   try:
     # Execute the SQL command
