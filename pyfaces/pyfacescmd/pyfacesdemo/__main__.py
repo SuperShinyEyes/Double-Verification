@@ -31,7 +31,21 @@ def read_mac_addr_db(image_path):
   cursor = db.cursor()
 
   # Prepare SQL query to INSERT a record into the database.
-  mac_addr = "SELECT GoogleAccount FROM registerTable \ WHERE imagePath = '%s'" % (image_path)
+  sql = "SELECT GoogleAccount FROM registerTable \ WHERE imagePath = '%s'" % (image_path)
+
+  try:
+    # Execute the SQL command
+    cursor.execute(sql)
+    # Fetch all the rows in a list of lists.
+    results = cursor.fetchall()
+    print ">>>>>results:", results
+    print type(results)
+  except:
+    print "Error: unable to fecth data"
+
+  # disconnect from server
+  db.close()
+
   if mac_addr != None:
     return mac_addr
   else:
