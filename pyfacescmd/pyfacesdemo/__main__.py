@@ -28,10 +28,12 @@ def crop_img(img):
   Y = 60
   WIDTH = 240
   HEIGHT = 320
-  img = Image.open("image.jpg")
-  img2 = img.crop((X, Y, X+WIDTH, Y+HEIGHT))
-  img2.save("image_cropped.jpg")
-  print img2.size
+  img = Image.open(img)
+  # img2 = img.crop((X, Y, X+WIDTH, Y+HEIGHT))
+  # img2.save("image_cropped.jpg")
+  img.crop((X, Y, X+WIDTH, Y+HEIGHT))
+  img.save()
+  print img.size
 
 CWP = os.getcwd()   # Get current working directory
 CWP_parent = '/'.join(CWP.split('/')[:-1])
@@ -43,13 +45,13 @@ def run_bash_cmd(cmd):
 
 print("Taking a photo!")
 # CAPTURE_COMMAND = "fswebcam -r 1280x720 image.jpg"
-CAPTURE_COMMAND = "fswebcam -r 640x426 image.jpg"
+CAPTURE_COMMAND = "fswebcam -r 640x426 %s /images/probes/image.jpg" % CWP_parent
 print run_bash_cmd(CAPTURE_COMMAND)
 
 print("Cropping...")
-imgname = CWP + "/image.jpg"
+imgname = CWP + "/images/probes/image.jpg""
 crop_img(imgname)
-imgname = CWP + "/image_cropped.jpg"
+# imgname = CWP + "/image_cropped.jpg"
 
 print("Run face recognition!")
 # FACE_REC_COMMAND = "python pyfacescmd/pyfacesdemo %s 12 3" % image_path
