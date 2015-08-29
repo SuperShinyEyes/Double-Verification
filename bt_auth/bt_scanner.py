@@ -12,14 +12,13 @@ target_name = "My Phone"
 target_address = None
 
 # blink Arduino LED
-def blink_led(isOn)
+
 
 def scan_bt():
     bt_list_file = "existing_bt_list"
 
     nearby_devices = bluetooth.discover_devices()
 
-    existing_bt_list = None
     # read list from files
     if os.path.isfile(bt_list_file):
         print "read list"
@@ -31,16 +30,16 @@ def scan_bt():
     print existing_bt_list
 
     for bdaddr in nearby_devices:
-        bt_new = True 
+
         if bdaddr in existing_bt_list:
-            print "old"   
+            print "old"
         else:
             print "new"
             if read_bt_db(bdaddr):
                 print "AUTHORIZE"
 
         print "bt ", bdaddr
-        print "name ", bluetooth.lookup_name( bdaddr ) 
+        print "name ", bluetooth.lookup_name( bdaddr )
         #if target_name == bluetooth.lookup_name( bdaddr ):
         #    target_address = bdaddr
         #    break
@@ -66,7 +65,7 @@ def read_bt_db(bt_mac):
     cursor = db.cursor()
 
     # Prepare SQL query to INSERT a record into the database.
-    sql = "SELECT * FROM registerTable \
+    sql = "SELECT GoogleAccount, Name, ImagePath FROM registerTable \
         WHERE GoogleAccount = '%s'" % (bt_mac)
     try:
         # Execute the SQL command
@@ -95,7 +94,7 @@ def read_bt_db(bt_mac):
     db.close()
 
     return False
-    
+
 
 while True:
     scan_bt()

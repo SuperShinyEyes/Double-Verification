@@ -1,10 +1,24 @@
 from pyfaces import pyfaces
 import sys,time
-import MySQLdb
-import bluetooth
-import os
-import pickle
-import serial
+
+# if __name__ == "__main__":
+#     try:
+#         start = time.time()
+#         argsnum=len(sys.argv)
+#         print "args:",argsnum
+#         if(argsnum<5):
+#             print "usage:python pyfacesdemo imgname dirname numofeigenfaces threshold "
+#             sys.exit(2)
+#         imgname=sys.argv[1]
+#         dirname=sys.argv[2]
+#         egfaces=int(sys.argv[3])
+#         thrshld=float(sys.argv[4])
+#         pyf=pyfaces.PyFaces(imgname,dirname,egfaces,thrshld)
+#         end = time.time()
+#         print 'took :',(end-start),'secs'
+#     except Exception,detail:
+#         print detail.args
+#         print "usage:python pyfacesdemo imgname dirname numofeigenfaces threshold "
 
 import sh, subprocess, os
 from PIL import Image
@@ -23,32 +37,13 @@ def crop_img(img):
   img_cropped.save('image_cropped.jpg')
   print img_cropped.size, '\n'
 
-def read_mac_addr_db(image_path):
-  # Open database connection
-  db = MySQLdb.connect("localhost","root","doubleVDB","DVDB" )
-
-  # prepare a cursor object using cursor() method
-  cursor = db.cursor()
-
-  # Prepare SQL query to INSERT a record into the database.
-  mac_addr = "SELECT GoogleAccount FROM registerTable \ WHERE imagePath = '%s'" % (image_path)
-  if mac_addr != None:
-    return mac_addr
-  else:
-    return False
-
-def person_has_phone(mac_addr):
-  nearby_devices = bluetooth.discover_devices()
-  return mac_addr in nearby_devices
+CWP = os.getcwd()   # Get current working directory
+CWP_parent = '/'.join(CWP.split('/')[:-1])
 
 def run_bash_cmd(cmd):
   process = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE)
   output = process.communicate()[0]
   return output
-
-
-CWP = os.getcwd()   # Get current working directory
-CWP_parent = '/'.join(CWP.split('/')[:-1])
 
 print("Taking a photo!")
 # CAPTURE_COMMAND = "fswebcam -r 1280x720 image.jpg"
@@ -69,10 +64,3 @@ thrshld = 3
 pyf=pyfaces.PyFaces(imgname,dirname,egfaces,thrshld)
 end = time.time()
 print 'took :',(end-start),'secs'
-
-mac_addr = read_mac_addr_db(pyf.matchfile)
-if mac_addr != False
-  if person_has_phone(mac_addr):
-    print "Welcome!!!"
-  else:
-    print "You are not supposed to do it!"
