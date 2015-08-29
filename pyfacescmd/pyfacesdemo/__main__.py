@@ -23,6 +23,8 @@ import sys,time
 import sh, subprocess, os
 from PIL import Image
 
+start = time.time()
+
 def crop_img(img):
   X = 200
   Y = 60
@@ -60,3 +62,5 @@ dirname = CWP_parent + "/images/gallery/"
 egfaces = 12
 thrshld = 3
 pyf=pyfaces.PyFaces(imgname,dirname,egfaces,thrshld)
+end = time.time()
+print 'took :',(end-start),'secs'
