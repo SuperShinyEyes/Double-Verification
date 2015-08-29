@@ -60,4 +60,3 @@ dirname = CWP_parent + "/images/gallery/"
 egfaces = 12
 thrshld = 3
 pyf=pyfaces.PyFaces(imgname,dirname,egfaces,thrshld)
-print pyf.matchfile
