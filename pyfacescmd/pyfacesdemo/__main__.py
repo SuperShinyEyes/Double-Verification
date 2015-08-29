@@ -8,7 +8,7 @@ if __name__ == "__main__":
         print "args:",argsnum
         if(argsnum<5):
             print "usage:python pyfacesdemo imgname dirname numofeigenfaces threshold "
-            sys.exit(2)                
+            sys.exit(2)
         imgname=sys.argv[1]
         dirname=sys.argv[2]
         egfaces=int(sys.argv[3])
@@ -19,3 +19,5 @@ if __name__ == "__main__":
     except Exception,detail:
         print detail.args
         print "usage:python pyfacesdemo imgname dirname numofeigenfaces threshold "
+    else:
+      return pyf.
