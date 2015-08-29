@@ -30,7 +30,7 @@ class PyFaces:
   def set_selected_eigenfaces_count(self,selected_eigenfaces_count,ext):
     #call eigenfaces.parsefolder() and get imagenamelist
     self.imgnamelist=self.facet.parsefolder(self.imgsdir,ext)
-    print 'num:', len(self.imgnamelist), '\n', self.imgnamelist, '\n'
+    print 'num:', len(self.imgnamelist), '\n', '\n'
     numimgs=len(self.imgnamelist)
     if(selected_eigenfaces_count >= numimgs  or selected_eigenfaces_count == 0):
       selected_eigenfaces_count=numimgs/2
