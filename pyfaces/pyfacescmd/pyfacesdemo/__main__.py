@@ -64,10 +64,9 @@ print("Run face recognition!")
 # FACE_REC_COMMAND = "python pyfacescmd/pyfacesdemo %s 12 3" % image_path
 
 dirname = CWP_parent + "/images/gallery/"
-egfaces = 12
+egfaces = 3
 thrshld = 3
 pyf=pyfaces.PyFaces(imgname,dirname,egfaces,thrshld)
-print pyf.matchfile
 end = time.time()
 print 'took :',(end-start),'secs'
 
