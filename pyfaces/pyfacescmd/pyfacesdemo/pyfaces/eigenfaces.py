@@ -58,6 +58,7 @@ class FaceRec:
             result=self.bundle.imglist[idx]
         print "try reconstruction"
         self.reconstructfaces(selectedfacesnum)
+        print ">>>>> result:", result
         return mindist,result
 
     def doCalculations(self,dir,imglist,selectednumeigenfaces):

@@ -18,6 +18,8 @@ class PyFaces:
     print "number of eigenfaces used:",self.egfnum
     self.facet.checkCache(self.imgsdir,extn,self.imgnamelist,self.egfnum,self.threshold)
     mindist,matchfile=self.facet.findmatchingimage(self.testimg,self.egfnum,self.threshold)
+    self.matchfile = matchfile
+    print "Print matchfile"
     if mindist < 1e-10:
       mindist=0
     if not matchfile:
@@ -28,14 +30,14 @@ class PyFaces:
   def set_selected_eigenfaces_count(self,selected_eigenfaces_count,ext):
     #call eigenfaces.parsefolder() and get imagenamelist
     self.imgnamelist=self.facet.parsefolder(self.imgsdir,ext)
-    print 'num:', len(self.imgnamelist), '\n', self.imgnamelist, '\n'
+    print 'num:', len(self.imgnamelist), '\n', '\n'
     numimgs=len(self.imgnamelist)
     if(selected_eigenfaces_count >= numimgs  or selected_eigenfaces_count == 0):
       selected_eigenfaces_count=numimgs/2
     return selected_eigenfaces_count
 
-  # def return_matchfile(self, matchfile):
-  #   return matchfile
+  # def return_self.matchfile(self, self.matchfile):
+  #   return self.matchfile
 
     ##if __name__ == "__main__":
     ##    import time

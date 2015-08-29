@@ -70,9 +70,9 @@ pyf=pyfaces.PyFaces(imgname,dirname,egfaces,thrshld)
 end = time.time()
 print 'took :',(end-start),'secs'
 
-# mac_addr = read_mac_addr_db(pyf.matchfile)
-# if mac_addr != False:
-#   if person_has_phone(mac_addr):
-#     print "Welcome!!!"
-#   else:
-#     print "You are not supposed to do it!"
+mac_addr = read_mac_addr_db(pyf.matchfile)
+if mac_addr != False:
+  if person_has_phone(mac_addr):
+    print "Welcome!!!"
+  else:
+    print "You are not supposed to do it!"
