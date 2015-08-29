@@ -20,10 +20,10 @@ class PyFaces:
     mindist,self.matchfile=self.facet.findmatchingimage(self.testimg,self.egfnum,self.threshold)
     if mindist < 1e-10:
       mindist=0
-      if not matchfile:
-        print "NOMATCH! try higher threshold"
-      else:
-        print "matches :"+matchfile+" dist :"+str(mindist)
+    if not matchfile:
+      print "NOMATCH! try higher threshold"
+    else:
+      print "matches :"+matchfile+" dist :"+str(mindist)
 
   def set_selected_eigenfaces_count(self,selected_eigenfaces_count,ext):
     #call eigenfaces.parsefolder() and get imagenamelist
@@ -32,7 +32,7 @@ class PyFaces:
     numimgs=len(self.imgnamelist)
     if(selected_eigenfaces_count >= numimgs  or selected_eigenfaces_count == 0):
       selected_eigenfaces_count=numimgs/2
-    return selected_eigenfaces_count
+      return selected_eigenfaces_count
 
   # def return_matchfile(self, matchfile):
   #   return matchfile
