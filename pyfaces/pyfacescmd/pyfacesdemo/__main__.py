@@ -24,7 +24,7 @@ def crop_img(img):
   print img_cropped.size, '\n'
 
 def read_mac_addr_db(filename):
-  image_path = "/var/www/html/pictures" + filename
+  image_path = "/var/www/html/pictures/" + filename
   # Open database connection
   db = MySQLdb.connect("localhost","root","doubleVDB","DVDB" )
 
@@ -91,7 +91,8 @@ pyf=pyfaces.PyFaces(imgname,dirname,egfaces,thrshld)
 end = time.time()
 print 'took :',(end-start),'secs'
 
-mac_addr = read_mac_addr_db(pyf.matchfile)
+filename = pyf.matchfile.split("/")[-1]
+mac_addr = read_mac_addr_db(filename)
 if mac_addr != False:
   if person_has_phone(mac_addr):
     print "Welcome!!!"
