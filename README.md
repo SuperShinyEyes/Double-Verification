@@ -1,6 +1,7 @@
 # Double-Verification
-Hack@Seoul2015 item<br>
-We are using [pyfaces](https://code.google.com/p/pyfaces/) for face recognition.
+Double-Verification enables seamless workflow by auto-authenticating users. Double-Verification first recognizes your face and then scans your phone by bluetooth. If both your face and phone(bluetooth mac address) are in the database you will be authenticated.<br>
+Double-Verification is an item for Hack@Seoul2015.<br>
+We use [pyfaces](https://code.google.com/p/pyfaces/) for face recognition.
 
 ## Prerequisite
 https://www.youtube.com/watch?v=MRMbZJ1IP6c
